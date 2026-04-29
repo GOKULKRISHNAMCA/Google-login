@@ -182,7 +182,12 @@ if (!user) { window.location.href = "/"; return null; }
     window.location.href = "/";
   };
 
-  useEffect(() => { loadPosts(); }, []);
+ useEffect(() => {
+  const user = localStorage.getItem("user");
+  if (user) {
+    window.location.href = "/home";  // only redirect if logged in
+  }
+}, []);
 
   return (
     <>
