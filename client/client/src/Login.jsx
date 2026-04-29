@@ -160,7 +160,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
 
   const user = JSON.parse(localStorage.getItem("user") || "null");
-  if (!user) return <h2 style={{ padding: 20 }}>Please login first</h2>;
+if (!user) { window.location.href = "/"; return null; }
 
   const user_id = user.id;
   const initials = user.username.slice(0, 2).toUpperCase();
